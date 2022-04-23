@@ -14,23 +14,23 @@
  * }
  */
 class Solution {
-    static int i;
+    static int i,kth_res;
     static boolean flag;
-    void utility(TreeNode root,int k,int[] arr){
-        if(root==null || !flag) return;
-        utility(root.left,k,arr);
+    void utility(TreeNode root,int k){
+        if(root==null || flag==false) return;
+        utility(root.left,k);
         i++;
         if(i==k) {
-            arr[0]=root.val;
+            kth_res=root.val;
             flag=false;
         }
-        utility(root.right,k,arr);
+        utility(root.right,k);
     }
     public int kthSmallest(TreeNode root, int k) {
         i=0;
         flag=true;
         int[] arr=new int[1];
-        utility(root,k,arr);
-        return arr[0];
+        utility(root,k);
+        return kth_res;
     }
 }
