@@ -20,7 +20,6 @@ class Solution {
         if(root==null || !flag) return;
         utility(root.left,k,arr);
         i++;
-        System.out.println(i+" "+ root.val);
         if(i==k) {
             arr[0]=root.val;
             flag=false;
