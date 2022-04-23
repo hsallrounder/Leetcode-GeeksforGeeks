@@ -29,7 +29,6 @@ class Solution {
     public int kthSmallest(TreeNode root, int k) {
         i=0;
         flag=true;
-        int[] arr=new int[1];
         utility(root,k);
         return kth_res;
     }
