@@ -30,7 +30,7 @@ class Solution {
     private void BFS(Node s,TreeMap<Integer,List<Integer>> mp,int level,Queue<Node> queue){
         if(s==null) return;
         queue.add(s);
-        if (queue.size() != 0){
+        if(!queue.isEmpty()){
             s = queue.poll();
             List<Integer> temp=mp.getOrDefault(level,new LinkedList<>());
             temp.add(s.val);
