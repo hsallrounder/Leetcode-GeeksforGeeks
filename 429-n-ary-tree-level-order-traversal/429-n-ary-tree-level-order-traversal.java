@@ -27,17 +27,18 @@ class Solution {
         }
         return ans;
     }
-    private void BFS(Node s,TreeMap<Integer,List<Integer>> mp,int level,Queue<Node> queue){
-        if(s==null) return;
-        queue.add(s);
-        if(!queue.isEmpty()){
-            s = queue.poll();
-            List<Integer> temp=mp.getOrDefault(level,new LinkedList<>());
-            temp.add(s.val);
-            mp.put(level,temp);
-            List<Node> l = s.children;
-            for(Node n:l){
-                BFS(n,mp,level+1,queue);
+    private void BFS(Node t_root,TreeMap<Integer,List<Integer>> mp,int level,Queue<Node> queue){
+        if(t_root!=null){
+            queue.add(t_root);
+            if(!queue.isEmpty()){
+                t_root = queue.poll();
+                List<Integer> temp=mp.getOrDefault(level,new LinkedList<>());
+                temp.add(t_root.val);
+                mp.put(level,temp);
+                List<Node> l = t_root.children;
+                for(Node n:l){
+                    BFS(n,mp,level+1,queue);
+                }
             }
         }
     }
