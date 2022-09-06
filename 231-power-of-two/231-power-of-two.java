@@ -1,6 +1,8 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
+        if(n==0) return false;
+        if(n==1) return true;
         long x=(long)n;
-        return x!=0 && ((x & (x-1))==0);
+        return ((x & -x)==x);
     }
 }
