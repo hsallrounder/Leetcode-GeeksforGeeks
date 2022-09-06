@@ -1,10 +1,7 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
-        return power((double)n);
-    }
-    boolean power(double n){
-        if(n==2 || n==1) return true;
-        if(n<2) return false;
-        return power(n/2);
+        if(n==0) return false;
+        while(n%2==0) n/=2;
+        return n==1;
     }
 }
