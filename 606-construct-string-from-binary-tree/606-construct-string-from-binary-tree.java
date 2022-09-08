@@ -14,24 +14,11 @@
  * }
  */
 class Solution {
-    static String res;
-   private static String tree2strANS;
     public String tree2str(TreeNode root) {
-        res="";
-        pre(root);
+        if(root==null) return "";
+        if(root.left==null && root.right==null) return root.val+"";
+        String res=root.val+"("+tree2str(root.left)+")";
+        if(root.right!=null) res+="("+tree2str(root.right)+")";
         return res;
-    }
-    private static void pre(TreeNode root){
-        if(root==null) return;
-        res+=root.val;
-        if(root.left==null && root.right==null) return;
-        res+="(";
-        pre(root.left);
-        res+=")";
-        if(root.right!=null){
-            res+="(";
-            pre(root.right);
-            res+=")";
-        }
     }
 }
