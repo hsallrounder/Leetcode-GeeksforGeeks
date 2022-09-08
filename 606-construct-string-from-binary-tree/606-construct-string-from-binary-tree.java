@@ -17,8 +17,7 @@ class Solution {
     public String tree2str(TreeNode root) {
         if(root==null) return "";
         if(root.left==null && root.right==null) return root.val+"";
-        String res=root.val+"("+tree2str(root.left)+")";
-        if(root.right!=null) res+="("+tree2str(root.right)+")";
-        return res;
+        if(root.right==null) return root.val+"("+tree2str(root.left)+")";
+        return root.val+"("+tree2str(root.left)+")"+"("+tree2str(root.right)+")";
     }
 }
